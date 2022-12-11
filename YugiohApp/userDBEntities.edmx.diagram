@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a48088d9d0c3419e89b4aa15e86bf5a3" Name="Diagram1" ZoomLevel="69">
+        <EntityTypeShape EntityType="userDBModel.Atributo" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="userDBModel.Carta" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="userDBModel.Deck" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="userDBModel.Icone" Width="1.5" PointX="0.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="userDBModel.LogAcesso" Width="1.5" PointX="7" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="userDBModel.TipoCarta" Width="1.5" PointX="0.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="userDBModel.TipoDeck" Width="1.5" PointX="4.625" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="userDBModel.Usuario" Width="1.5" PointX="7.375" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="userDBModel.FK__Carta__AtributoI__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="userDBModel.FK__Carta__IconeId__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="userDBModel.FK__Carta__TipoCarta__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="userDBModel.FK__Deck__CartaId__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="userDBModel.FK__Deck__TipoDeckId__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="userDBModel.FK__Deck__UsuarioId__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="userDBModel.FK__LogAcesso__Usuar__3C69FB99" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="userDBModel.Armadilha" Width="1.5" PointX="4.875" PointY="12.875" />
+        <EntityTypeShape EntityType="userDBModel.Magia" Width="1.5" PointX="4.875" PointY="10.625" />
+        <EntityTypeShape EntityType="userDBModel.Monstro" Width="1.5" PointX="4.875" PointY="15.375" />
+        <EntityTypeShape EntityType="userDBModel.MonstroEfeito" Width="1.5" PointX="6.75" PointY="15.375" />
+        <AssociationConnector Association="userDBModel.FK__Armadilha__TipoC__656C112C" />
+        <AssociationConnector Association="userDBModel.FK__Magia__TipoCarta__68487DD7" />
+        <AssociationConnector Association="userDBModel.FK__Monstro__TipoCar__5EBF139D" />
+        <AssociationConnector Association="userDBModel.FK__MonstroEf__Monst__628FA481" />
+        <EntityTypeShape EntityType="userDBModel.MonstroPendulo" Width="1.5" PointX="8.625" PointY="15.375" />
+        <AssociationConnector Association="userDBModel.FK__MonstroPe__Monst__6FE99F9F" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

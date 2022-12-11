@@ -1,0 +1,347 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{45D03578-4AB2-4264-A334-3C559173BC00}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YugiohApp</RootNamespace>
+    <AssemblyName>YugiohApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44394</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\userDB.mdf" />
+    <Content Include="App_Data\userDB_log.ldf">
+      <DependentUpon>userDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="assets\Cartas\card1.png" />
+    <Content Include="assets\Cartas\card2.png" />
+    <Content Include="assets\Cartas\card3.png" />
+    <Content Include="assets\Cartas\card4.png" />
+    <Content Include="assets\Cartas\card5.png" />
+    <Content Include="assets\Cartas\card6.png" />
+    <Content Include="assets\Cartas\costas.jpg" />
+    <Content Include="assets\favicon.ico" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\estiloCarta.css" />
+    <Content Include="css\styles.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="FrmAtributo.aspx" />
+    <Content Include="FrmCarta.aspx" />
+    <Content Include="FrmIcone.aspx" />
+    <Content Include="FrmUsuario.aspx" />
+    <Content Include="imagensCarta\Braço Direito de O Proibido.png" />
+    <Content Include="imagensCarta\Braço Esquerdo de O Proibido %282%29.png" />
+    <Content Include="imagensCarta\Braço Esquerdo de O Proibido.png" />
+    <Content Include="imagensCarta\Cyber Stein.png" />
+    <Content Include="imagensCarta\Dragão Branco de Olhos Azuis.png" />
+    <Content Include="imagensCarta\Dragão Negro de Olhos Vermelhos.png" />
+    <Content Include="imagensCarta\Exodia, O Proibido.png" />
+    <Content Include="imagensCarta\Mago Negro.png" />
+    <Content Include="imagensCarta\Minerva, a Luminosa Exaltada.png" />
+    <Content Include="imagensCarta\Perna Esquerda de O Proibido.png" />
+    <Content Include="imagensCarta\Raigeki.png" />
+    <Content Include="imagensCarta\Slifer, o dragão Celeste.png" />
+    <Content Include="imagensCarta\Soldado do Lustro Negro.png" />
+    <Content Include="imagensCarta\Tyler-o-grande-guerreiro.png" />
+    <Content Include="js\scripts.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="Tipo_Carta\FrmTipo.aspx" />
+    <Content Include="imagens\add.png" />
+    <Content Include="imagens\delete.jpg" />
+    <Content Include="imagens\edit.png" />
+    <Content Include="imagens\view-details.png" />
+    <Content Include="Tipo_Carta\TipoArmadilha\FrmTipoArmadilha.aspx" />
+    <Content Include="Tipo_Carta\TipoMagia\FrmTipoMagia.aspx" />
+    <Content Include="Tipo_Carta\TipoMonstro\FrmTipoMonstro.aspx" />
+    <Content Include="Tipo_Carta\TipoMonstro\Monstro_Efeito\FrmMonstroEfeito.aspx" />
+    <Content Include="Tipo_Carta\TipoMonstro\Monstro_Efeito\Monstro_Pendulo\FrmMonstroPendulo.aspx" />
+    <Content Include="userDBEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>userDBEntities.edmx</DependentUpon>
+      <LastGenOutput>userDBEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="userDBEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>userDBEntities.edmx</DependentUpon>
+      <LastGenOutput>userDBEntities.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Armadilha.cs">
+      <DependentUpon>userDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Atributo.cs">
+      <DependentUpon>userDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AtributoDAO.cs" />
+    <Compile Include="Carta.cs">
+      <DependentUpon>userDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CartaDAO.cs" />
+    <Compile Include="Deck.cs">
+      <DependentUpon>userDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAtributo.aspx.cs">
+      <DependentUpon>FrmAtributo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmAtributo.aspx.designer.cs">
+      <DependentUpon>FrmAtributo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCarta.aspx.cs">
+      <DependentUpon>FrmCarta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmCarta.aspx.designer.cs">
+      <DependentUpon>FrmCarta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmIcone.aspx.cs">
+      <DependentUpon>FrmIcone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmIcone.aspx.designer.cs">
+      <DependentUpon>FrmIcone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ImageUtil.cs" />
+    <Compile Include="FrmUsuario.aspx.cs">
+      <DependentUpon>FrmUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmUsuario.aspx.designer.cs">
+      <DependentUpon>FrmUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogAcessoDAO.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Magia.cs">
+      <DependentUpon>userDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Monstro.cs">
+      <DependentUpon>userDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MonstroEfeito.cs">
+      <DependentUpon>userDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MonstroPendulo.cs">
+      <DependentUpon>userDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_Carta\FrmTipo.aspx.cs">
+      <DependentUpon>FrmTipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tipo_Carta\FrmTipo.aspx.designer.cs">
+      <DependentUpon>FrmTipo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Icone.cs">
+      <DependentUpon>userDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IconeDAO.cs" />
+    <Compile Include="LogAcesso.cs">
+      <DependentUpon>userDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TipoCarta.cs">
+      <DependentUpon>userDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_Carta\TipoArmadilha\FrmTipoArmadilha.aspx.cs">
+      <DependentUpon>FrmTipoArmadilha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tipo_Carta\TipoArmadilha\FrmTipoArmadilha.aspx.designer.cs">
+      <DependentUpon>FrmTipoArmadilha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_Carta\TipoArmadilha\TipoArmadilhaDAO.cs" />
+    <Compile Include="Tipo_Carta\TipoDAO.cs" />
+    <Compile Include="TipoDeck.cs">
+      <DependentUpon>userDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_Carta\TipoMagia\FrmTipoMagia.aspx.cs">
+      <DependentUpon>FrmTipoMagia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tipo_Carta\TipoMagia\FrmTipoMagia.aspx.designer.cs">
+      <DependentUpon>FrmTipoMagia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_Carta\TipoMagia\TipoMagiaDAO.cs" />
+    <Compile Include="Tipo_Carta\TipoMonstro\FrmTipoMonstro.aspx.cs">
+      <DependentUpon>FrmTipoMonstro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tipo_Carta\TipoMonstro\FrmTipoMonstro.aspx.designer.cs">
+      <DependentUpon>FrmTipoMonstro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_Carta\TipoMonstro\Monstro_Efeito\FrmMonstroEfeito.aspx.cs">
+      <DependentUpon>FrmMonstroEfeito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tipo_Carta\TipoMonstro\Monstro_Efeito\FrmMonstroEfeito.aspx.designer.cs">
+      <DependentUpon>FrmMonstroEfeito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_Carta\TipoMonstro\Monstro_Efeito\MonstroEfeitoDAO.cs" />
+    <Compile Include="Tipo_Carta\TipoMonstro\Monstro_Efeito\Monstro_Pendulo\FrmMonstroPendulo.aspx.cs">
+      <DependentUpon>FrmMonstroPendulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tipo_Carta\TipoMonstro\Monstro_Efeito\Monstro_Pendulo\FrmMonstroPendulo.aspx.designer.cs">
+      <DependentUpon>FrmMonstroPendulo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_Carta\TipoMonstro\Monstro_Efeito\Monstro_Pendulo\MonstroPenduloDAO.cs" />
+    <Compile Include="Tipo_Carta\TipoMonstro\TipoMonstroDAO.cs" />
+    <Compile Include="userDBEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>userDBEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="userDBEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>userDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="userDBEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>userDBEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario.cs">
+      <DependentUpon>userDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsuarioDAO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <EntityDeploy Include="userDBEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>userDBEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="userDBEntities.edmx.diagram">
+      <DependentUpon>userDBEntities.edmx</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60884</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44394/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

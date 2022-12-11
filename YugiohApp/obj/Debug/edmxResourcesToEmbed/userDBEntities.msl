@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="userDBModelStoreContainer" CdmEntityContainer="userDBEntities1">
+    <EntitySetMapping Name="Atributo">
+      <EntityTypeMapping TypeName="userDBModel.Atributo">
+        <MappingFragment StoreEntitySet="Atributo">
+          <ScalarProperty Name="IdAtributo" ColumnName="IdAtributo" />
+          <ScalarProperty Name="NomeAtributo" ColumnName="NomeAtributo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carta">
+      <EntityTypeMapping TypeName="userDBModel.Carta">
+        <MappingFragment StoreEntitySet="Carta">
+          <ScalarProperty Name="IdCarta" ColumnName="IdCarta" />
+          <ScalarProperty Name="NomeCarta" ColumnName="NomeCarta" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+          <ScalarProperty Name="NumeroCarta" ColumnName="NumeroCarta" />
+          <ScalarProperty Name="Ataque" ColumnName="Ataque" />
+          <ScalarProperty Name="Defesa" ColumnName="Defesa" />
+          <ScalarProperty Name="DescricaoCarta" ColumnName="DescricaoCarta" />
+          <ScalarProperty Name="TipoCartaId" ColumnName="TipoCartaId" />
+          <ScalarProperty Name="AtributoId" ColumnName="AtributoId" />
+          <ScalarProperty Name="IconeId" ColumnName="IconeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deck">
+      <EntityTypeMapping TypeName="userDBModel.Deck">
+        <MappingFragment StoreEntitySet="Deck">
+          <ScalarProperty Name="IdDeck" ColumnName="IdDeck" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="CartaId" ColumnName="CartaId" />
+          <ScalarProperty Name="TipoDeckId" ColumnName="TipoDeckId" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Icone">
+      <EntityTypeMapping TypeName="userDBModel.Icone">
+        <MappingFragment StoreEntitySet="Icone">
+          <ScalarProperty Name="IdIcone" ColumnName="IdIcone" />
+          <ScalarProperty Name="NomeIcone" ColumnName="NomeIcone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogAcesso">
+      <EntityTypeMapping TypeName="userDBModel.LogAcesso">
+        <MappingFragment StoreEntitySet="LogAcesso">
+          <ScalarProperty Name="IdLogAcesso" ColumnName="IdLogAcesso" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="DataHoraAcesso" ColumnName="DataHoraAcesso" />
+          <ScalarProperty Name="DataHoraLogoff" ColumnName="DataHoraLogoff" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoCarta">
+      <EntityTypeMapping TypeName="userDBModel.TipoCarta">
+        <MappingFragment StoreEntitySet="TipoCarta">
+          <ScalarProperty Name="IdTipoCarta" ColumnName="IdTipoCarta" />
+          <ScalarProperty Name="NomeTipoCarta" ColumnName="NomeTipoCarta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoDeck">
+      <EntityTypeMapping TypeName="userDBModel.TipoDeck">
+        <MappingFragment StoreEntitySet="TipoDeck">
+          <ScalarProperty Name="IdTipoDeck" ColumnName="IdTipoDeck" />
+          <ScalarProperty Name="NomeTipoDeck" ColumnName="NomeTipoDeck" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="userDBModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Armadilha">
+      <EntityTypeMapping TypeName="userDBModel.Armadilha">
+        <MappingFragment StoreEntitySet="Armadilha">
+          <ScalarProperty Name="TipoCartaId" ColumnName="TipoCartaId" />
+          <ScalarProperty Name="NomeArmadilha" ColumnName="NomeArmadilha" />
+          <ScalarProperty Name="IdArmadilha" ColumnName="IdArmadilha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Magia">
+      <EntityTypeMapping TypeName="userDBModel.Magia">
+        <MappingFragment StoreEntitySet="Magia">
+          <ScalarProperty Name="TipoCartaId" ColumnName="TipoCartaId" />
+          <ScalarProperty Name="NomeMagia" ColumnName="NomeMagia" />
+          <ScalarProperty Name="IdMagia" ColumnName="IdMagia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Monstro">
+      <EntityTypeMapping TypeName="userDBModel.Monstro">
+        <MappingFragment StoreEntitySet="Monstro">
+          <ScalarProperty Name="TipoCartaId" ColumnName="TipoCartaId" />
+          <ScalarProperty Name="NomeMonstro" ColumnName="NomeMonstro" />
+          <ScalarProperty Name="IdMonstro" ColumnName="IdMonstro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonstroEfeito">
+      <EntityTypeMapping TypeName="userDBModel.MonstroEfeito">
+        <MappingFragment StoreEntitySet="MonstroEfeito">
+          <ScalarProperty Name="MonstroId" ColumnName="MonstroId" />
+          <ScalarProperty Name="NomeMonstroEfeito" ColumnName="NomeMonstroEfeito" />
+          <ScalarProperty Name="IdMonstroEfeito" ColumnName="IdMonstroEfeito" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonstroPendulo">
+      <EntityTypeMapping TypeName="userDBModel.MonstroPendulo">
+        <MappingFragment StoreEntitySet="MonstroPendulo">
+          <ScalarProperty Name="MonstroEfeitoId" ColumnName="MonstroEfeitoId" />
+          <ScalarProperty Name="NomeMonstroPendulo" ColumnName="NomeMonstroPendulo" />
+          <ScalarProperty Name="IdMonstroPendulo" ColumnName="IdMonstroPendulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

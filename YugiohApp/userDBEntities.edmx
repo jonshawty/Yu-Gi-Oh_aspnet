@@ -1,0 +1,822 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="userDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Armadilha">
+          <Key>
+            <PropertyRef Name="IdArmadilha" />
+          </Key>
+          <Property Name="IdArmadilha" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeArmadilha" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="TipoCartaId" Type="int" />
+        </EntityType>
+        <EntityType Name="Atributo">
+          <Key>
+            <PropertyRef Name="IdAtributo" />
+          </Key>
+          <Property Name="IdAtributo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeAtributo" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carta">
+          <Key>
+            <PropertyRef Name="IdCarta" />
+          </Key>
+          <Property Name="IdCarta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeCarta" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Nivel" Type="int" />
+          <Property Name="NumeroCarta" Type="varchar" MaxLength="10" />
+          <Property Name="Ataque" Type="int" />
+          <Property Name="Defesa" Type="int" />
+          <Property Name="DescricaoCarta" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="TipoCartaId" Type="int" />
+          <Property Name="AtributoId" Type="int" />
+          <Property Name="IconeId" Type="int" />
+        </EntityType>
+        <EntityType Name="Deck">
+          <Key>
+            <PropertyRef Name="IdDeck" />
+          </Key>
+          <Property Name="IdDeck" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UsuarioId" Type="int" />
+          <Property Name="CartaId" Type="int" />
+          <Property Name="TipoDeckId" Type="int" />
+          <Property Name="Descricao" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Icone">
+          <Key>
+            <PropertyRef Name="IdIcone" />
+          </Key>
+          <Property Name="IdIcone" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeIcone" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LogAcesso">
+          <Key>
+            <PropertyRef Name="IdLogAcesso" />
+          </Key>
+          <Property Name="IdLogAcesso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UsuarioId" Type="int" />
+          <Property Name="DataHoraAcesso" Type="datetime" Nullable="false" />
+          <Property Name="DataHoraLogoff" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Magia">
+          <Key>
+            <PropertyRef Name="IdMagia" />
+          </Key>
+          <Property Name="IdMagia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeMagia" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="TipoCartaId" Type="int" />
+        </EntityType>
+        <EntityType Name="Monstro">
+          <Key>
+            <PropertyRef Name="IdMonstro" />
+          </Key>
+          <Property Name="IdMonstro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeMonstro" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="TipoCartaId" Type="int" />
+        </EntityType>
+        <EntityType Name="MonstroEfeito">
+          <Key>
+            <PropertyRef Name="IdMonstroEfeito" />
+          </Key>
+          <Property Name="IdMonstroEfeito" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeMonstroEfeito" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="MonstroId" Type="int" />
+        </EntityType>
+        <EntityType Name="MonstroPendulo">
+          <Key>
+            <PropertyRef Name="IdMonstroPendulo" />
+          </Key>
+          <Property Name="IdMonstroPendulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeMonstroPendulo" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="MonstroEfeitoId" Type="int" />
+        </EntityType>
+        <EntityType Name="TipoCarta">
+          <Key>
+            <PropertyRef Name="IdTipoCarta" />
+          </Key>
+          <Property Name="IdTipoCarta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeTipoCarta" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoDeck">
+          <Key>
+            <PropertyRef Name="IdTipoDeck" />
+          </Key>
+          <Property Name="IdTipoDeck" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomeTipoDeck" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Senha" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Armadilha__TipoC__656C112C">
+          <End Role="TipoCarta" Type="Self.TipoCarta" Multiplicity="0..1" />
+          <End Role="Armadilha" Type="Self.Armadilha" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCarta">
+              <PropertyRef Name="IdTipoCarta" />
+            </Principal>
+            <Dependent Role="Armadilha">
+              <PropertyRef Name="TipoCartaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Carta__AtributoI__4E88ABD4">
+          <End Role="Atributo" Type="Self.Atributo" Multiplicity="0..1" />
+          <End Role="Carta" Type="Self.Carta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Atributo">
+              <PropertyRef Name="IdAtributo" />
+            </Principal>
+            <Dependent Role="Carta">
+              <PropertyRef Name="AtributoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Carta__IconeId__4F7CD00D">
+          <End Role="Icone" Type="Self.Icone" Multiplicity="0..1" />
+          <End Role="Carta" Type="Self.Carta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Icone">
+              <PropertyRef Name="IdIcone" />
+            </Principal>
+            <Dependent Role="Carta">
+              <PropertyRef Name="IconeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Carta__TipoCarta__4D94879B">
+          <End Role="TipoCarta" Type="Self.TipoCarta" Multiplicity="0..1" />
+          <End Role="Carta" Type="Self.Carta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCarta">
+              <PropertyRef Name="IdTipoCarta" />
+            </Principal>
+            <Dependent Role="Carta">
+              <PropertyRef Name="TipoCartaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Deck__CartaId__5441852A">
+          <End Role="Carta" Type="Self.Carta" Multiplicity="0..1" />
+          <End Role="Deck" Type="Self.Deck" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carta">
+              <PropertyRef Name="IdCarta" />
+            </Principal>
+            <Dependent Role="Deck">
+              <PropertyRef Name="CartaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Deck__TipoDeckId__5629CD9C">
+          <End Role="TipoDeck" Type="Self.TipoDeck" Multiplicity="0..1" />
+          <End Role="Deck" Type="Self.Deck" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoDeck">
+              <PropertyRef Name="IdTipoDeck" />
+            </Principal>
+            <Dependent Role="Deck">
+              <PropertyRef Name="TipoDeckId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Deck__UsuarioId__5535A963">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Deck" Type="Self.Deck" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="Deck">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LogAcesso__Usuar__3C69FB99">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="LogAcesso" Type="Self.LogAcesso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="LogAcesso">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Magia__TipoCarta__68487DD7">
+          <End Role="TipoCarta" Type="Self.TipoCarta" Multiplicity="0..1" />
+          <End Role="Magia" Type="Self.Magia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCarta">
+              <PropertyRef Name="IdTipoCarta" />
+            </Principal>
+            <Dependent Role="Magia">
+              <PropertyRef Name="TipoCartaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Monstro__TipoCar__5EBF139D">
+          <End Role="TipoCarta" Type="Self.TipoCarta" Multiplicity="0..1" />
+          <End Role="Monstro" Type="Self.Monstro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCarta">
+              <PropertyRef Name="IdTipoCarta" />
+            </Principal>
+            <Dependent Role="Monstro">
+              <PropertyRef Name="TipoCartaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MonstroEf__Monst__628FA481">
+          <End Role="Monstro" Type="Self.Monstro" Multiplicity="0..1" />
+          <End Role="MonstroEfeito" Type="Self.MonstroEfeito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Monstro">
+              <PropertyRef Name="IdMonstro" />
+            </Principal>
+            <Dependent Role="MonstroEfeito">
+              <PropertyRef Name="MonstroId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MonstroPe__Monst__6FE99F9F">
+          <End Role="MonstroEfeito" Type="Self.MonstroEfeito" Multiplicity="0..1" />
+          <End Role="MonstroPendulo" Type="Self.MonstroPendulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonstroEfeito">
+              <PropertyRef Name="IdMonstroEfeito" />
+            </Principal>
+            <Dependent Role="MonstroPendulo">
+              <PropertyRef Name="MonstroEfeitoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="userDBModelStoreContainer">
+          <EntitySet Name="Armadilha" EntityType="Self.Armadilha" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Atributo" EntityType="Self.Atributo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Carta" EntityType="Self.Carta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Deck" EntityType="Self.Deck" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Icone" EntityType="Self.Icone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LogAcesso" EntityType="Self.LogAcesso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Magia" EntityType="Self.Magia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Monstro" EntityType="Self.Monstro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MonstroEfeito" EntityType="Self.MonstroEfeito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MonstroPendulo" EntityType="Self.MonstroPendulo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoCarta" EntityType="Self.TipoCarta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoDeck" EntityType="Self.TipoDeck" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Armadilha__TipoC__656C112C" Association="Self.FK__Armadilha__TipoC__656C112C">
+            <End Role="TipoCarta" EntitySet="TipoCarta" />
+            <End Role="Armadilha" EntitySet="Armadilha" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Carta__AtributoI__4E88ABD4" Association="Self.FK__Carta__AtributoI__4E88ABD4">
+            <End Role="Atributo" EntitySet="Atributo" />
+            <End Role="Carta" EntitySet="Carta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Carta__IconeId__4F7CD00D" Association="Self.FK__Carta__IconeId__4F7CD00D">
+            <End Role="Icone" EntitySet="Icone" />
+            <End Role="Carta" EntitySet="Carta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Carta__TipoCarta__4D94879B" Association="Self.FK__Carta__TipoCarta__4D94879B">
+            <End Role="TipoCarta" EntitySet="TipoCarta" />
+            <End Role="Carta" EntitySet="Carta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Deck__CartaId__5441852A" Association="Self.FK__Deck__CartaId__5441852A">
+            <End Role="Carta" EntitySet="Carta" />
+            <End Role="Deck" EntitySet="Deck" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Deck__TipoDeckId__5629CD9C" Association="Self.FK__Deck__TipoDeckId__5629CD9C">
+            <End Role="TipoDeck" EntitySet="TipoDeck" />
+            <End Role="Deck" EntitySet="Deck" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Deck__UsuarioId__5535A963" Association="Self.FK__Deck__UsuarioId__5535A963">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Deck" EntitySet="Deck" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LogAcesso__Usuar__3C69FB99" Association="Self.FK__LogAcesso__Usuar__3C69FB99">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="LogAcesso" EntitySet="LogAcesso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Magia__TipoCarta__68487DD7" Association="Self.FK__Magia__TipoCarta__68487DD7">
+            <End Role="TipoCarta" EntitySet="TipoCarta" />
+            <End Role="Magia" EntitySet="Magia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Monstro__TipoCar__5EBF139D" Association="Self.FK__Monstro__TipoCar__5EBF139D">
+            <End Role="TipoCarta" EntitySet="TipoCarta" />
+            <End Role="Monstro" EntitySet="Monstro" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MonstroEf__Monst__628FA481" Association="Self.FK__MonstroEf__Monst__628FA481">
+            <End Role="Monstro" EntitySet="Monstro" />
+            <End Role="MonstroEfeito" EntitySet="MonstroEfeito" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MonstroPe__Monst__6FE99F9F" Association="Self.FK__MonstroPe__Monst__6FE99F9F">
+            <End Role="MonstroEfeito" EntitySet="MonstroEfeito" />
+            <End Role="MonstroPendulo" EntitySet="MonstroPendulo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="userDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Atributo">
+          <Key>
+            <PropertyRef Name="IdAtributo" />
+          </Key>
+          <Property Name="IdAtributo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeAtributo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Carta" Relationship="Self.FK__Carta__AtributoI__4E88ABD4" FromRole="Atributo" ToRole="Carta" />
+        </EntityType>
+        <EntityType Name="Carta">
+          <Key>
+            <PropertyRef Name="IdCarta" />
+          </Key>
+          <Property Name="IdCarta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeCarta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nivel" Type="Int32" />
+          <Property Name="NumeroCarta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Ataque" Type="Int32" />
+          <Property Name="Defesa" Type="Int32" />
+          <Property Name="DescricaoCarta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipoCartaId" Type="Int32" />
+          <Property Name="AtributoId" Type="Int32" />
+          <Property Name="IconeId" Type="Int32" />
+          <NavigationProperty Name="Atributo" Relationship="Self.FK__Carta__AtributoI__4E88ABD4" FromRole="Carta" ToRole="Atributo" />
+          <NavigationProperty Name="Icone" Relationship="Self.FK__Carta__IconeId__4F7CD00D" FromRole="Carta" ToRole="Icone" />
+          <NavigationProperty Name="TipoCarta" Relationship="Self.FK__Carta__TipoCarta__4D94879B" FromRole="Carta" ToRole="TipoCarta" />
+          <NavigationProperty Name="Deck" Relationship="Self.FK__Deck__CartaId__5441852A" FromRole="Carta" ToRole="Deck" />
+        </EntityType>
+        <EntityType Name="Deck">
+          <Key>
+            <PropertyRef Name="IdDeck" />
+          </Key>
+          <Property Name="IdDeck" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UsuarioId" Type="Int32" />
+          <Property Name="CartaId" Type="Int32" />
+          <Property Name="TipoDeckId" Type="Int32" />
+          <Property Name="Descricao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Carta" Relationship="Self.FK__Deck__CartaId__5441852A" FromRole="Deck" ToRole="Carta" />
+          <NavigationProperty Name="TipoDeck" Relationship="Self.FK__Deck__TipoDeckId__5629CD9C" FromRole="Deck" ToRole="TipoDeck" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Deck__UsuarioId__5535A963" FromRole="Deck" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Icone">
+          <Key>
+            <PropertyRef Name="IdIcone" />
+          </Key>
+          <Property Name="IdIcone" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeIcone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Carta" Relationship="Self.FK__Carta__IconeId__4F7CD00D" FromRole="Icone" ToRole="Carta" />
+        </EntityType>
+        <EntityType Name="LogAcesso">
+          <Key>
+            <PropertyRef Name="IdLogAcesso" />
+          </Key>
+          <Property Name="IdLogAcesso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UsuarioId" Type="Int32" />
+          <Property Name="DataHoraAcesso" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataHoraLogoff" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__LogAcesso__Usuar__3C69FB99" FromRole="LogAcesso" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="TipoCarta">
+          <Key>
+            <PropertyRef Name="IdTipoCarta" />
+          </Key>
+          <Property Name="IdTipoCarta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeTipoCarta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Carta" Relationship="Self.FK__Carta__TipoCarta__4D94879B" FromRole="TipoCarta" ToRole="Carta" />
+          <NavigationProperty Name="Armadilha" Relationship="userDBModel.FK__Armadilha__TipoC__656C112C" FromRole="TipoCarta" ToRole="Armadilha" />
+          <NavigationProperty Name="Magia" Relationship="userDBModel.FK__Magia__TipoCarta__68487DD7" FromRole="TipoCarta" ToRole="Magia" />
+          <NavigationProperty Name="Monstro" Relationship="userDBModel.FK__Monstro__TipoCar__5EBF139D" FromRole="TipoCarta" ToRole="Monstro" />
+        </EntityType>
+        <EntityType Name="TipoDeck">
+          <Key>
+            <PropertyRef Name="IdTipoDeck" />
+          </Key>
+          <Property Name="IdTipoDeck" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeTipoDeck" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Deck" Relationship="Self.FK__Deck__TipoDeckId__5629CD9C" FromRole="TipoDeck" ToRole="Deck" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Senha" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Deck" Relationship="Self.FK__Deck__UsuarioId__5535A963" FromRole="Usuario" ToRole="Deck" />
+          <NavigationProperty Name="LogAcesso" Relationship="Self.FK__LogAcesso__Usuar__3C69FB99" FromRole="Usuario" ToRole="LogAcesso" />
+        </EntityType>
+        <Association Name="FK__Carta__AtributoI__4E88ABD4">
+          <End Role="Atributo" Type="Self.Atributo" Multiplicity="0..1" />
+          <End Role="Carta" Type="Self.Carta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Atributo">
+              <PropertyRef Name="IdAtributo" />
+            </Principal>
+            <Dependent Role="Carta">
+              <PropertyRef Name="AtributoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Carta__IconeId__4F7CD00D">
+          <End Role="Icone" Type="Self.Icone" Multiplicity="0..1" />
+          <End Role="Carta" Type="Self.Carta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Icone">
+              <PropertyRef Name="IdIcone" />
+            </Principal>
+            <Dependent Role="Carta">
+              <PropertyRef Name="IconeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Carta__TipoCarta__4D94879B">
+          <End Role="TipoCarta" Type="Self.TipoCarta" Multiplicity="0..1" />
+          <End Role="Carta" Type="Self.Carta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCarta">
+              <PropertyRef Name="IdTipoCarta" />
+            </Principal>
+            <Dependent Role="Carta">
+              <PropertyRef Name="TipoCartaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Deck__CartaId__5441852A">
+          <End Role="Carta" Type="Self.Carta" Multiplicity="0..1" />
+          <End Role="Deck" Type="Self.Deck" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carta">
+              <PropertyRef Name="IdCarta" />
+            </Principal>
+            <Dependent Role="Deck">
+              <PropertyRef Name="CartaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Deck__TipoDeckId__5629CD9C">
+          <End Role="TipoDeck" Type="Self.TipoDeck" Multiplicity="0..1" />
+          <End Role="Deck" Type="Self.Deck" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoDeck">
+              <PropertyRef Name="IdTipoDeck" />
+            </Principal>
+            <Dependent Role="Deck">
+              <PropertyRef Name="TipoDeckId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Deck__UsuarioId__5535A963">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Deck" Type="Self.Deck" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="Deck">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LogAcesso__Usuar__3C69FB99">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="LogAcesso" Type="Self.LogAcesso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="LogAcesso">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="userDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Atributo" EntityType="Self.Atributo" />
+          <EntitySet Name="Carta" EntityType="Self.Carta" />
+          <EntitySet Name="Deck" EntityType="Self.Deck" />
+          <EntitySet Name="Icone" EntityType="Self.Icone" />
+          <EntitySet Name="LogAcesso" EntityType="Self.LogAcesso" />
+          <EntitySet Name="TipoCarta" EntityType="Self.TipoCarta" />
+          <EntitySet Name="TipoDeck" EntityType="Self.TipoDeck" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK__Carta__AtributoI__4E88ABD4" Association="Self.FK__Carta__AtributoI__4E88ABD4">
+            <End Role="Atributo" EntitySet="Atributo" />
+            <End Role="Carta" EntitySet="Carta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Carta__IconeId__4F7CD00D" Association="Self.FK__Carta__IconeId__4F7CD00D">
+            <End Role="Icone" EntitySet="Icone" />
+            <End Role="Carta" EntitySet="Carta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Carta__TipoCarta__4D94879B" Association="Self.FK__Carta__TipoCarta__4D94879B">
+            <End Role="TipoCarta" EntitySet="TipoCarta" />
+            <End Role="Carta" EntitySet="Carta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Deck__CartaId__5441852A" Association="Self.FK__Deck__CartaId__5441852A">
+            <End Role="Carta" EntitySet="Carta" />
+            <End Role="Deck" EntitySet="Deck" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Deck__TipoDeckId__5629CD9C" Association="Self.FK__Deck__TipoDeckId__5629CD9C">
+            <End Role="TipoDeck" EntitySet="TipoDeck" />
+            <End Role="Deck" EntitySet="Deck" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Deck__UsuarioId__5535A963" Association="Self.FK__Deck__UsuarioId__5535A963">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Deck" EntitySet="Deck" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LogAcesso__Usuar__3C69FB99" Association="Self.FK__LogAcesso__Usuar__3C69FB99">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="LogAcesso" EntitySet="LogAcesso" />
+          </AssociationSet>
+          <EntitySet Name="Armadilha" EntityType="userDBModel.Armadilha" />
+          <EntitySet Name="Magia" EntityType="userDBModel.Magia" />
+          <EntitySet Name="Monstro" EntityType="userDBModel.Monstro" />
+          <EntitySet Name="MonstroEfeito" EntityType="userDBModel.MonstroEfeito" />
+          <AssociationSet Name="FK__Armadilha__TipoC__656C112C" Association="userDBModel.FK__Armadilha__TipoC__656C112C">
+            <End Role="TipoCarta" EntitySet="TipoCarta" />
+            <End Role="Armadilha" EntitySet="Armadilha" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Magia__TipoCarta__68487DD7" Association="userDBModel.FK__Magia__TipoCarta__68487DD7">
+            <End Role="TipoCarta" EntitySet="TipoCarta" />
+            <End Role="Magia" EntitySet="Magia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Monstro__TipoCar__5EBF139D" Association="userDBModel.FK__Monstro__TipoCar__5EBF139D">
+            <End Role="TipoCarta" EntitySet="TipoCarta" />
+            <End Role="Monstro" EntitySet="Monstro" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MonstroEf__Monst__628FA481" Association="userDBModel.FK__MonstroEf__Monst__628FA481">
+            <End Role="Monstro" EntitySet="Monstro" />
+            <End Role="MonstroEfeito" EntitySet="MonstroEfeito" />
+          </AssociationSet>
+          <EntitySet Name="MonstroPendulo" EntityType="userDBModel.MonstroPendulo" />
+          <AssociationSet Name="FK__MonstroPe__Monst__6FE99F9F" Association="userDBModel.FK__MonstroPe__Monst__6FE99F9F">
+            <End Role="MonstroEfeito" EntitySet="MonstroEfeito" />
+            <End Role="MonstroPendulo" EntitySet="MonstroPendulo" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Armadilha">
+          <Key>
+            <PropertyRef Name="IdArmadilha" />
+          </Key>
+          <Property Name="IdArmadilha" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeArmadilha" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TipoCartaId" Type="Int32" />
+          <NavigationProperty Name="TipoCarta" Relationship="userDBModel.FK__Armadilha__TipoC__656C112C" FromRole="Armadilha" ToRole="TipoCarta" />
+        </EntityType>
+        <EntityType Name="Magia">
+          <Key>
+            <PropertyRef Name="IdMagia" />
+          </Key>
+          <Property Name="IdMagia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeMagia" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TipoCartaId" Type="Int32" />
+          <NavigationProperty Name="TipoCarta" Relationship="userDBModel.FK__Magia__TipoCarta__68487DD7" FromRole="Magia" ToRole="TipoCarta" />
+        </EntityType>
+        <EntityType Name="Monstro">
+          <Key>
+            <PropertyRef Name="IdMonstro" />
+          </Key>
+          <Property Name="IdMonstro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeMonstro" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TipoCartaId" Type="Int32" />
+          <NavigationProperty Name="TipoCarta" Relationship="userDBModel.FK__Monstro__TipoCar__5EBF139D" FromRole="Monstro" ToRole="TipoCarta" />
+          <NavigationProperty Name="MonstroEfeito" Relationship="userDBModel.FK__MonstroEf__Monst__628FA481" FromRole="Monstro" ToRole="MonstroEfeito" />
+        </EntityType>
+        <EntityType Name="MonstroEfeito">
+          <Key>
+            <PropertyRef Name="IdMonstroEfeito" />
+          </Key>
+          <Property Name="IdMonstroEfeito" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeMonstroEfeito" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MonstroId" Type="Int32" />
+          <NavigationProperty Name="Monstro" Relationship="userDBModel.FK__MonstroEf__Monst__628FA481" FromRole="MonstroEfeito" ToRole="Monstro" />
+          <NavigationProperty Name="MonstroPenduloes" Relationship="userDBModel.FK__MonstroPe__Monst__6FE99F9F" FromRole="MonstroEfeito" ToRole="MonstroPendulo" />
+        </EntityType>
+        <Association Name="FK__Armadilha__TipoC__656C112C">
+          <End Type="userDBModel.TipoCarta" Role="TipoCarta" Multiplicity="0..1" />
+          <End Type="userDBModel.Armadilha" Role="Armadilha" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCarta">
+              <PropertyRef Name="IdTipoCarta" />
+            </Principal>
+            <Dependent Role="Armadilha">
+              <PropertyRef Name="TipoCartaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Magia__TipoCarta__68487DD7">
+          <End Type="userDBModel.TipoCarta" Role="TipoCarta" Multiplicity="0..1" />
+          <End Type="userDBModel.Magia" Role="Magia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCarta">
+              <PropertyRef Name="IdTipoCarta" />
+            </Principal>
+            <Dependent Role="Magia">
+              <PropertyRef Name="TipoCartaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Monstro__TipoCar__5EBF139D">
+          <End Type="userDBModel.TipoCarta" Role="TipoCarta" Multiplicity="0..1" />
+          <End Type="userDBModel.Monstro" Role="Monstro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCarta">
+              <PropertyRef Name="IdTipoCarta" />
+            </Principal>
+            <Dependent Role="Monstro">
+              <PropertyRef Name="TipoCartaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MonstroEf__Monst__628FA481">
+          <End Type="userDBModel.Monstro" Role="Monstro" Multiplicity="0..1" />
+          <End Type="userDBModel.MonstroEfeito" Role="MonstroEfeito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Monstro">
+              <PropertyRef Name="IdMonstro" />
+            </Principal>
+            <Dependent Role="MonstroEfeito">
+              <PropertyRef Name="MonstroId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MonstroPendulo">
+          <Key>
+            <PropertyRef Name="IdMonstroPendulo" />
+          </Key>
+          <Property Name="IdMonstroPendulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomeMonstroPendulo" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MonstroEfeitoId" Type="Int32" />
+          <NavigationProperty Name="MonstroEfeito" Relationship="userDBModel.FK__MonstroPe__Monst__6FE99F9F" FromRole="MonstroPendulo" ToRole="MonstroEfeito" />
+        </EntityType>
+        <Association Name="FK__MonstroPe__Monst__6FE99F9F">
+          <End Type="userDBModel.MonstroEfeito" Role="MonstroEfeito" Multiplicity="0..1" />
+          <End Type="userDBModel.MonstroPendulo" Role="MonstroPendulo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MonstroEfeito">
+              <PropertyRef Name="IdMonstroEfeito" />
+            </Principal>
+            <Dependent Role="MonstroPendulo">
+              <PropertyRef Name="MonstroEfeitoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="userDBModelStoreContainer" CdmEntityContainer="userDBEntities1">
+          <EntitySetMapping Name="Atributo">
+            <EntityTypeMapping TypeName="userDBModel.Atributo">
+              <MappingFragment StoreEntitySet="Atributo">
+                <ScalarProperty Name="IdAtributo" ColumnName="IdAtributo" />
+                <ScalarProperty Name="NomeAtributo" ColumnName="NomeAtributo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carta">
+            <EntityTypeMapping TypeName="userDBModel.Carta">
+              <MappingFragment StoreEntitySet="Carta">
+                <ScalarProperty Name="IdCarta" ColumnName="IdCarta" />
+                <ScalarProperty Name="NomeCarta" ColumnName="NomeCarta" />
+                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+                <ScalarProperty Name="NumeroCarta" ColumnName="NumeroCarta" />
+                <ScalarProperty Name="Ataque" ColumnName="Ataque" />
+                <ScalarProperty Name="Defesa" ColumnName="Defesa" />
+                <ScalarProperty Name="DescricaoCarta" ColumnName="DescricaoCarta" />
+                <ScalarProperty Name="TipoCartaId" ColumnName="TipoCartaId" />
+                <ScalarProperty Name="AtributoId" ColumnName="AtributoId" />
+                <ScalarProperty Name="IconeId" ColumnName="IconeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deck">
+            <EntityTypeMapping TypeName="userDBModel.Deck">
+              <MappingFragment StoreEntitySet="Deck">
+                <ScalarProperty Name="IdDeck" ColumnName="IdDeck" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="CartaId" ColumnName="CartaId" />
+                <ScalarProperty Name="TipoDeckId" ColumnName="TipoDeckId" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Icone">
+            <EntityTypeMapping TypeName="userDBModel.Icone">
+              <MappingFragment StoreEntitySet="Icone">
+                <ScalarProperty Name="IdIcone" ColumnName="IdIcone" />
+                <ScalarProperty Name="NomeIcone" ColumnName="NomeIcone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LogAcesso">
+            <EntityTypeMapping TypeName="userDBModel.LogAcesso">
+              <MappingFragment StoreEntitySet="LogAcesso">
+                <ScalarProperty Name="IdLogAcesso" ColumnName="IdLogAcesso" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="DataHoraAcesso" ColumnName="DataHoraAcesso" />
+                <ScalarProperty Name="DataHoraLogoff" ColumnName="DataHoraLogoff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoCarta">
+            <EntityTypeMapping TypeName="userDBModel.TipoCarta">
+              <MappingFragment StoreEntitySet="TipoCarta">
+                <ScalarProperty Name="IdTipoCarta" ColumnName="IdTipoCarta" />
+                <ScalarProperty Name="NomeTipoCarta" ColumnName="NomeTipoCarta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoDeck">
+            <EntityTypeMapping TypeName="userDBModel.TipoDeck">
+              <MappingFragment StoreEntitySet="TipoDeck">
+                <ScalarProperty Name="IdTipoDeck" ColumnName="IdTipoDeck" />
+                <ScalarProperty Name="NomeTipoDeck" ColumnName="NomeTipoDeck" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="userDBModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Armadilha">
+            <EntityTypeMapping TypeName="userDBModel.Armadilha">
+              <MappingFragment StoreEntitySet="Armadilha">
+                <ScalarProperty Name="TipoCartaId" ColumnName="TipoCartaId" />
+                <ScalarProperty Name="NomeArmadilha" ColumnName="NomeArmadilha" />
+                <ScalarProperty Name="IdArmadilha" ColumnName="IdArmadilha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Magia">
+            <EntityTypeMapping TypeName="userDBModel.Magia">
+              <MappingFragment StoreEntitySet="Magia">
+                <ScalarProperty Name="TipoCartaId" ColumnName="TipoCartaId" />
+                <ScalarProperty Name="NomeMagia" ColumnName="NomeMagia" />
+                <ScalarProperty Name="IdMagia" ColumnName="IdMagia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Monstro">
+            <EntityTypeMapping TypeName="userDBModel.Monstro">
+              <MappingFragment StoreEntitySet="Monstro">
+                <ScalarProperty Name="TipoCartaId" ColumnName="TipoCartaId" />
+                <ScalarProperty Name="NomeMonstro" ColumnName="NomeMonstro" />
+                <ScalarProperty Name="IdMonstro" ColumnName="IdMonstro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MonstroEfeito">
+            <EntityTypeMapping TypeName="userDBModel.MonstroEfeito">
+              <MappingFragment StoreEntitySet="MonstroEfeito">
+                <ScalarProperty Name="MonstroId" ColumnName="MonstroId" />
+                <ScalarProperty Name="NomeMonstroEfeito" ColumnName="NomeMonstroEfeito" />
+                <ScalarProperty Name="IdMonstroEfeito" ColumnName="IdMonstroEfeito" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MonstroPendulo">
+            <EntityTypeMapping TypeName="userDBModel.MonstroPendulo">
+              <MappingFragment StoreEntitySet="MonstroPendulo">
+                <ScalarProperty Name="MonstroEfeitoId" ColumnName="MonstroEfeitoId" />
+                <ScalarProperty Name="NomeMonstroPendulo" ColumnName="NomeMonstroPendulo" />
+                <ScalarProperty Name="IdMonstroPendulo" ColumnName="IdMonstroPendulo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
